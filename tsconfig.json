@@ -1,0 +1,82 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "noEmitOnError": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "paths": {
+      "@icons/*": [
+        "./public/icons/*"
+      ],
+      "@srcIcons/*": [
+        "./src/assets/icons/*"
+      ],
+      "@v2/components/*": [
+        "./src/components/*"
+      ],
+      "@v3/components/*": [
+        "./src/ui/*"
+      ],
+      "@constants/*": [
+        "./src/utils/constants/*"
+      ],
+      "@utils/*": [
+        "./src/utils/common/*"
+      ],
+      "@formSchema/*": [
+        "./src/utils/validation/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@atoms/*": [
+        "./src/atoms/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ]
+    },
+    "types": [
+      "vitest/globals",
+      "@testing-library/jest-dom",
+    ]
+  },
+  "include": [
+    "src",
+    "rtl.setup.ts",
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
