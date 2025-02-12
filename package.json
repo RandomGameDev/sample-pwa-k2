@@ -1,13 +1,16 @@
 {
   "name": "frontend-neo-d2c",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build": "tsc --incremental && vite build",
+    "lint": "concurrently -r -g -P --kill-others-on-fail \"npm:lint:ts\"",
     "lint:es": "eslint --fix",
+    "lint:dry": "eslint src/** --fix-dry-run .",
+    "lint:style": "stylelint --fix --allow-empty-input",
+    "lint:ts": "tsc --noEmit",
     "preview": "vite preview",
     "prepare": "husky"
   },

@@ -26,7 +26,7 @@ export default tseslint.config(
       "**/stylelint.config.mjs",
       "**/tailwind.config.cjs",
       "**/vite.config.ts",
-      "**/.eslintrc.cjs",
+      "**/eslint.config.mjs",
       "**/dist",
       "**/*.css",
       "**/*.svg",
@@ -65,12 +65,6 @@ export default tseslint.config(
       parser: tsParser,
       ecmaVersion: "latest",
       sourceType: "module",
-
-      parserOptions: {
-        projectService: {
-          defaultProject: "tsconfig.json",
-        },
-      },
     },
 
     settings: {
