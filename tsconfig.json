@@ -26,45 +26,27 @@
     "noImplicitAny": false,
     "importHelpers": true,
     "paths": {
-      "@icons/*": [
-        "./public/icons/*"
-      ],
-      "@srcIcons/*": [
-        "./src/assets/icons/*"
-      ],
-      "@v2/components/*": [
-        "./src/components/*"
-      ],
-      "@v3/components/*": [
-        "./src/ui/*"
-      ],
-      "@constants/*": [
-        "./src/utils/constants/*"
-      ],
-      "@utils/*": [
-        "./src/utils/common/*"
-      ],
-      "@formSchema/*": [
-        "./src/utils/validation/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@services/*": [
-        "./src/services/*"
+      "@api/*": [
+        "./src/api/*"
       ],
       "@atoms/*": [
         "./src/atoms/*"
       ],
-      "@pages/*": [
-        "./src/pages/*"
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
       ],
       "@interfaces/*": [
         "./src/interfaces/*"
       ],
-      "@api/*": [
-        "./src/api/*"
-      ]
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
     },
     "types": [
       "vitest/globals",

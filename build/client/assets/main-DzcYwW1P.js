@@ -1,0 +1,1 @@
+import{w as e}from"./with-props-jGfVx5ek.js";import{n as t,O as n}from"./chunk-IR6S3I6Y-BZWQWXkI.js";const s=()=>t.jsx("nav",{className:"h-[46px] bg-yellow-400 pt-1 text-center text-2xl font-bold",children:"cloudsters"}),i=e(function(){return t.jsxs("div",{children:[t.jsx(s,{}),t.jsx("main",{children:t.jsx(n,{})})]})});export{i as default};

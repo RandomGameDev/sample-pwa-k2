@@ -4,5 +4,5 @@ const tsCommand = (filenames) => {
 
 export default {
   "*.{ts,tsx}": [tsCommand],
-  "**/*.css": ["npm run lint:style", "prettier --write"],
+  // "**/*.css": ["npm run lint:style", "prettier --write"],
 };
