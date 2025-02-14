@@ -1,1 +1,0 @@
-import{w as t}from"./with-props-jGfVx5ek.js";import{n as e}from"./chunk-IR6S3I6Y-BZWQWXkI.js";const s=()=>e.jsxs("div",{className:"px-4 py-6",children:[e.jsx("h2",{className:"text-center text-lg font-bold",children:"Order from multiple brands"}),e.jsx("h3",{className:"text-center text-sm",children:"Check out all in one go!"})]}),o=t(s);export{o as default};

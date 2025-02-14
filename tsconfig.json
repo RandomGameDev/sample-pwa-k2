@@ -25,6 +25,7 @@
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "importHelpers": true,
+    "verbatimModuleSyntax": true,
     "paths": {
       "@api/*": [
         "./src/api/*"
@@ -51,11 +52,16 @@
     "types": [
       "vitest/globals",
       "@testing-library/jest-dom",
+    ],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
     ]
   },
   "include": [
     "src",
     "rtl.setup.ts",
+    ".react-router/types/**/*"
   ],
   "references": [
     {

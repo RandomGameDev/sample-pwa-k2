@@ -1,7 +1,8 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+
 import "./app.css";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <head>
@@ -19,6 +20,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+};
+
+export function HydrateFallback() {
+  return <p></p>;
 }
 
 export default function App() {
