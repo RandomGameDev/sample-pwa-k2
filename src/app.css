@@ -2,13 +2,14 @@
 /* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable custom-property-pattern */
 /* stylelint-disable import-notation */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @layer rc-theme, theme, rc-base, base, rc-components, components, rc-utilities, utilities;
 
 @import "tailwindcss";
 @import "@cloudeats/robin-components/index.css";
 
 @theme {
-  --tracking-*: initial;
   --leading-*: initial;
   --radius-*: initial;
   --color-*: initial;
@@ -97,34 +98,271 @@
   --color-teal-2: #9acbd0;
   --color-teal-3: #48a6a7;
   --color-teal-4: #2973b2;
+  --font-inter: "Inter", "sans-serif";
+  --leading-10: 0.625rem;
+  --leading-12: 0.75rem;
+  --leading-14: 0.875rem;
+  --leading-16: 1rem;
+  --leading-18: 1.125rem;
+  --leading-20: 1.25rem;
+  --leading-22: 1.375rem;
+  --leading-24: 1.5rem;
+  --leading-26: 1.625rem;
+  --leading-28: 1.75rem;
+  --leading-30: 1.875rem;
+  --leading-32: 2rem;
+  --leading-34: 2.125rem;
+  --leading-36: 2.25rem;
+  --leading-38: 2.375rem;
+  --leading-40: 2.5rem;
+  --leading-42: 2.625rem;
+  --leading-44: 2.75rem;
+  --leading-46: 2.875rem;
+  --leading-48: 3rem;
+  --leading-50: 3.125rem;
+  --leading-52: 3.25rem;
+  --leading-54: 3.375rem;
+  --leading-56: 3.5rem;
+  --leading-58: 3.625rem;
+  --leading-60: 3.75rem;
+  --leading-62: 3.875rem;
+  --leading-64: 4rem;
+  --leading-66: 4.125rem;
+  --leading-68: 4.25rem;
+  --leading-70: 4.375rem;
+  --leading-72: 4.5rem;
+  --leading-74: 4.625rem;
+  --leading-76: 4.75rem;
+  --leading-78: 4.875rem;
+  --leading-80: 5rem;
+  --text-10: 0.625rem;
+  --text-12: 0.75rem;
+  --text-14: 0.875rem;
+  --text-16: 1rem;
+  --text-18: 1.125rem;
+  --text-20: 1.25rem;
+  --text-22: 1.375rem;
+  --text-24: 1.5rem;
+  --text-26: 1.625rem;
+  --text-28: 1.75rem;
+  --text-30: 1.875rem;
+  --text-32: 2rem;
+  --text-34: 2.125rem;
+  --text-36: 2.25rem;
+  --text-38: 2.375rem;
+  --text-40: 2.5rem;
+  --text-42: 2.625rem;
+  --text-44: 2.75rem;
+  --text-46: 2.875rem;
+  --text-48: 3rem;
+  --text-50: 3.125rem;
+  --text-52: 3.25rem;
+  --text-54: 3.375rem;
+  --text-56: 3.5rem;
+  --text-58: 3.625rem;
+  --text-60: 3.75rem;
+  --text-62: 3.875rem;
+  --text-64: 4rem;
+  --text-66: 4.125rem;
+  --text-68: 4.25rem;
+  --text-70: 4.375rem;
+  --text-72: 4.5rem;
+  --text-74: 4.625rem;
+  --text-76: 4.75rem;
+  --text-78: 4.875rem;
+  --text-80: 5rem;
 }
 
 @layer components {
+  .prose-display-xxl {
+    font-family: var(--font-inter);
+    font-size: var(--text-72);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-80);
+  }
+
+  .prose-display-xl {
+    font-family: var(--font-inter);
+    font-size: var(--text-72);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-78);
+  }
+
+  .prose-display-lg {
+    font-family: var(--font-inter);
+    font-size: var(--text-64);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-70);
+  }
+
+  .prose-display-md {
+    font-family: var(--font-inter);
+    font-size: var(--text-56);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-64);
+  }
+
+  .prose-display-sm {
+    font-family: var(--font-inter);
+    font-size: var(--text-48);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-56);
+  }
+
+  .prose-heading-xxl {
+    font-family: var(--font-inter);
+    font-size: var(--text-40);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-46);
+  }
+
+  .prose-heading-xl {
+    font-family: var(--font-inter);
+    font-size: var(--text-32);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-38);
+  }
+
+  .prose-heading-lg {
+    font-family: var(--font-inter);
+    font-size: var(--text-24);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-32);
+  }
+
+  .prose-heading-md {
+    font-family: var(--font-inter);
+    font-size: var(--text-20);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--leading-26);
+  }
+
   .prose-heading-sm {
-    font-size: 1.125rem;
+    font-family: var(--font-inter);
+    font-size: var(--text-18);
     font-weight: var(--font-weight-semibold);
     letter-spacing: var(--tracking-normal);
-    line-height: 1.5rem;
+    line-height: var(--leading-24);
+  }
+
+  .prose-body-xxxl-semibold {
+    font-family: var(--font-inter);
+    font-size: var(--text-24);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-32);
+  }
+
+  .prose-body-xxxl-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-24);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-32);
+  }
+
+  .prose-body-xxl-semibold {
+    font-family: var(--font-inter);
+    font-size: var(--text-20);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-28);
+  }
+
+  .prose-body-xxl-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-20);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-28);
   }
 
   .prose-body-xl-semibold {
-    font-size: 1.125rem;
+    font-family: var(--font-inter);
+    font-size: var(--text-18);
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--tracking-normal);
-    line-height: 1.625rem;
+    line-height: var(--text-26);
+  }
+
+  .prose-body-xl-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-18);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-26);
+  }
+
+  .prose-body-l-semibold {
+    font-family: var(--font-inter);
+    font-size: var(--text-16);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-24);
+  }
+
+  .prose-body-l-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-16);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-24);
   }
 
   .prose-body-m-semibold {
-    font-size: 0.875rem;
+    font-family: var(--font-inter);
+    font-size: var(--text-14);
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--tracking-normal);
-    line-height: 1.25rem;
+    line-height: var(--text-20);
+  }
+
+  .prose-body-m-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-14);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-20);
   }
 
   .prose-body-s-semibold {
-    font-size: 0.75rem;
+    font-family: var(--font-inter);
+    font-size: var(--text-12);
     font-weight: var(--font-weight-medium);
     letter-spacing: var(--tracking-normal);
-    line-height: 1.125rem;
+    line-height: var(--text-18);
+  }
+
+  .prose-body-s-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-12);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-18);
+  }
+
+  .prose-body-xs-semibold {
+    font-family: var(--font-inter);
+    font-size: var(--text-10);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-14);
+  }
+
+  .prose-body-xs-regular {
+    font-family: var(--font-inter);
+    font-size: var(--text-10);
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    line-height: var(--text-14);
   }
 }

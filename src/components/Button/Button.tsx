@@ -1,6 +1,6 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import React, { forwardRef, JSX } from "react";
 import { cn } from "@cloudeats/robin-components";
+import { cva, type VariantProps } from "class-variance-authority";
+import React, { forwardRef, type JSX } from "react";
 
 const buttonVariants = cva(
   "disabled:pointer-events-none rounded-xs flex items-center justify-center text-center h-fit focus:ring-secondary-500/30 focus:ring-4 outline-none w-fit relative",
