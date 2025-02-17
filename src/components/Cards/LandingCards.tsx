@@ -16,7 +16,7 @@ export const LandingCards = () => {
           <h2 className={cn("text-2xl font-semibold")}>Sulit Chicken</h2>
           <Link to="/menu" className="ml-auto">
             <Button
-              variant="warning"
+              variant="primary"
               style={{ cursor: "pointer" }}
               className="aspect-square"
             >
