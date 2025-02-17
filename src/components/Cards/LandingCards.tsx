@@ -7,24 +7,26 @@ export const LandingCards = () => {
   return (
     <div className={cn("relative px-4 py-6")}>
       <img
-        className="h-48 w-full rounded-t-lg object-cover"
+        className="h-48 w-full rounded-t-4xl object-cover"
         alt="Sulit Chicken"
         src={card1}
       />
-      <div className="flex flex-col justify-between rounded-lg p-4 text-left shadow-lg">
-        <div className="group flex justify-between">
-          <div className="ltr:ml-3">
-            <h2 className="text-2xl font-semibold">Sulit Chicken</h2>
-            <p className="text-gray-600">
-              Enjoy the best flavored fried chicken na todo sulit, todo sarap!
-            </p>
-          </div>
-          <Link to="/menu">
-            <Button variant={"warning"} style={{ cursor: "pointer" }}>
+      <div className="flex flex-col justify-between rounded-4xl p-4 text-left shadow-lg">
+        <div className="flex items-center">
+          <h2 className={cn("text-2xl font-semibold")}>Sulit Chicken</h2>
+          <Link to="/menu" className="ml-auto">
+            <Button
+              variant="warning"
+              style={{ cursor: "pointer" }}
+              className="aspect-square"
+            >
               <span className="text-lg">&gt;</span>
             </Button>
           </Link>
         </div>
+        <p className={cn("text-body-s-semibold text-neutral-500")}>
+          Enjoy the best flavored fried chicken na todo sulit, todo sarap!
+        </p>
       </div>
     </div>
   );
