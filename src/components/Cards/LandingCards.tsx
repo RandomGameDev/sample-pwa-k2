@@ -20,7 +20,7 @@ export const LandingCards = () => {
               style={{ cursor: "pointer" }}
               className="aspect-square"
             >
-              <span className="text-lg">&gt;</span>
+              <span className="text-4xl font-semibold">&gt;</span>
             </Button>
           </Link>
         </div>
