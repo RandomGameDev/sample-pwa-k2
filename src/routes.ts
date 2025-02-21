@@ -8,6 +8,6 @@ import {
 export default [
   layout("./layouts/main/index.tsx", [
     index("./components/Cards/index.tsx"),
-    route("/menu", "./pages/menu/index.tsx"),
+    route("/menu", "./components/menu/index.tsx"),
   ]),
 ] satisfies RouteConfig;
