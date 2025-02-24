@@ -12,8 +12,9 @@ const OrderLineItem = ({ title, price, addon, remark, image }) => {
           <h3 className="text-4xl font-semibold">{title}</h3>
           <span className="text-4xl">{`₱ ${price}`}</span>
         </div>
+        <p className="text-2xl">Add-ons:</p>
         <div className="mb-4 flex justify-between">
-          <p className="text-2xl">{`Add-ons: ${addon}`}</p>
+          <p className="text-2xl">{addon}</p>
           <span className="text-3xl">+₱ 30.00</span>
         </div>
         <div className="mb-4 flex justify-between">
@@ -46,14 +47,14 @@ export const OrderLineItemCards = () => {
     {
       title: "Dish Food 1",
       price: 249,
-      addon: "with Garlic Aioli Dip",
+      addon: "Garlic Aioli Dip",
       remark: "Please remove onions if there are any.",
       image: landing1,
     },
     {
       title: "Dish Food 1",
       price: 249,
-      addon: "with Extra Sliced Cheese",
+      addon: "Extra Sliced Cheese",
       remark: "Please remove onions if there are any.",
       image: landing2,
     },
