@@ -1,5 +1,6 @@
 import { Button } from "@components/Button/Button";
 import { cn } from "@cloudeats/robin-components";
+import { RadioGroup, RadioGroupItem } from "@components/RadioGroup";
 import { useState } from "react";
 import landing1 from "../../assets/landing1.png";
 
@@ -8,6 +9,11 @@ interface Addon {
   name: string;
   price: number;
 }
+
+const dipOptions = [
+  { label: "Garlic Aioli Dip", price: 10.0 },
+  { label: "Blue Cheese Dip", price: 20.0 },
+];
 
 const addons: Addon[] = [
   { id: 1, name: "Sulit Chicken", price: 99.99 },
@@ -21,7 +27,15 @@ const originalPrice = 249; // Original price of the dish
 export const DishDetailsPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedAddons, setSelectedAddons] = useState<Addon[]>([]);
+  const [selectedRadio, setSelectedRadio] = useState("");
   const [totalPrice, setTotalPrice] = useState(originalPrice * quantity); // initial price
+
+  const handleRadioChange = (option) => {
+    const currentPrice =
+      dipOptions.find((o) => o.label === selectedRadio)?.price ?? 0;
+    setTotalPrice(totalPrice - currentPrice + option.price);
+    setSelectedRadio(option.label);
+  };
 
   const handleCheckboxChange = (addon: Addon) => {
     if (selectedAddons.some((a) => a.id === addon.id)) {
@@ -64,6 +78,30 @@ export const DishDetailsPage = () => {
           This will be the part where the description of the food will display
           but we will still need to confirm up to how many characters this is.
         </p>
+        <p className="my-4">
+          Select a Dip <span className={cn("text-neutral-500")}>(Pick 1)</span>:
+        </p>
+        <RadioGroup>
+          {dipOptions.map((option) => (
+            <div
+              key={option.label}
+              className={cn("addons-center flex justify-between")}
+            >
+              <div className={cn("addons-center flex justify-between gap-2")}>
+                <div className={cn("flex items-center gap-1")}>
+                  <RadioGroupItem
+                    value={option.label}
+                    checked={selectedRadio === option.label}
+                    onClick={() => handleRadioChange(option)}
+                    label={""}
+                  />
+                  <span className={cn("text-xl")}>{option.label}</span>
+                </div>
+              </div>
+              <span className={cn("text-xl")}>+₱{option.price.toFixed(2)}</span>
+            </div>
+          ))}
+        </RadioGroup>
         <p className="my-4">
           Add-ons{" "}
           <span className={cn("text-neutral-500")}>(optional, max 5)</span>:
