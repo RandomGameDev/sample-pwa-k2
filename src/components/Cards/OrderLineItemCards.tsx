@@ -1,5 +1,6 @@
 import { Button } from "@components/Button/Button";
 import { cn } from "@cloudeats/robin-components";
+import { useState } from "react";
 
 interface Dish {
   title: string;
@@ -15,6 +16,8 @@ interface OrderLineItemProps {
 }
 
 const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
+  const [quantity, setQuantity] = useState(1);
+
   return (
     <div className={cn("align-items-center flex py-4")}>
       <img
@@ -37,17 +40,19 @@ const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
             <p className="text-2xl">Remarks:</p>
             <p className="text-2xl text-neutral-500">{`"${dish.remark}"`}</p>
           </div>
-          <div className="flex items-center justify-center rounded-full bg-neutral-200 px-2 py-0">
+          <div className="flex items-center justify-center rounded-full bg-neutral-200 px-3 py-0 text-2xl">
             <Button
               style={{ cursor: "pointer" }}
-              className="text-danger-500 rounded-full bg-transparent p-2 text-4xl"
+              className="text-danger-500 rounded-full bg-transparent p-2 px-4 py-2"
+              onClick={() => setQuantity(quantity - 1)}
             >
-              🗑️
+              {quantity > 1 ? "-" : "🗑️"}
             </Button>
-            <span className="mx-2 text-4xl">1</span>
+            <span className="mx-2">{quantity}</span>
             <Button
               style={{ cursor: "pointer" }}
-              className="rounded-full bg-transparent p-2 text-4xl"
+              className="rounded-full bg-transparent px-4 py-2"
+              onClick={() => setQuantity(quantity + 1)}
             >
               +
             </Button>
