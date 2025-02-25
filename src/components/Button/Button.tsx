@@ -15,6 +15,8 @@ const buttonVariants = cva(
           "text-black bg-primary-500 hover:bg-primary-400 focus:bg-primary-400 disabled:bg-primary-300 disabled:text-primary-600",
         secondary:
           "text-white bg-secondary-500 hover:bg-secondary-600 focus:bg-secondary-600 disabled:bg-secondary-50 disabled:text-secondary-400",
+        tertiary:
+          "text-white bg-neutral-900 hover:bg-neutral-800 focus:bg-neutral-800 disabled:bg-neutral-50 disabled:text-secondary-400",
         success:
           "text-white bg-success-500 hover:bg-success-600 focus:bg-success-600 disabled:bg-success-50 disabled:text-success-400",
         warning:

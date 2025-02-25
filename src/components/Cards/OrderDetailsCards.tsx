@@ -1,28 +1,18 @@
 import { cn } from "@cloudeats/robin-components";
-import landing1 from "../../assets/landing1.png";
-import landing2 from "../../assets/landing2.png";
 
-export const OrderDetailsCards = () => {
-  const orders = [
-    {
-      addons: "Garlic Aioli Dip",
-      amount: 1,
-      image: landing1,
-      item: "Burger Beast",
-      orderId: "NEO-00000001",
-      remarks: "Please remove onions if there are any.",
-      total: 249.0,
-    },
-    {
-      addons: "Garlic Aioli Dip",
-      amount: 1,
-      image: landing2,
-      item: "Sulit Chicken",
-      orderId: "NEO-00000002",
-      remarks: "Please remove onions if there are any.",
-      total: 249.0,
-    },
-  ];
+interface OrderDetailsCardsProps {
+  orders: {
+    addons: string;
+    amount: number;
+    image: string;
+    item: string;
+    orderId: string;
+    remarks: string;
+    total: number;
+  }[];
+}
+
+export const  OrderDetailsCards = ({ orders }: OrderDetailsCardsProps) => {
   return (
     <div className={cn("px-4 py-6")}>
       <div className="my-4 flex items-end justify-between">
