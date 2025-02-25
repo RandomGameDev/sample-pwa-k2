@@ -29,6 +29,14 @@ export const OrderPage = () => {
   ]);
 
   const diningOptions = ["Dine-in", "Take-Out"];
+  const [selectedDiningOption, setSelectedDiningOption] = useState<
+    string | null
+  >(null);
+
+  const handleDiningOptionChange = (value: string) => {
+    setSelectedDiningOption(value);
+  };
+
   const totalPrice = dishes.reduce(
     (acc, dish) => acc + dish.price + dish.addonPrice,
     0
@@ -45,11 +53,18 @@ export const OrderPage = () => {
             <RadioGroupItem
               key={option}
               value={option}
+              checked={selectedDiningOption === option}
+              onClick={() => handleDiningOptionChange(option)}
               label={option}
               labelClassName="text-2xl"
             />
           ))}
         </RadioGroup>
+        {selectedDiningOption === "Take-Out" && (
+          <div className="mt-4 flex justify-between">
+            <p className="text-2xl">Request for cutlery?</p>
+          </div>
+        )}
         <hr className="my-4 border-4 border-b-neutral-100" />
         <p className="mt-6 mb-6 text-4xl">Payment Summary</p>
         <p className="mb-6 text-3xl">Subtotal</p>
@@ -82,7 +97,11 @@ export const OrderPage = () => {
         <div className="mt-6">
           <Button
             style={{ cursor: "pointer" }}
-            className="border-primary-500 bg-primary-500 hover:bg-primary-600 mt-4 w-full rounded-lg border-2 py-8 text-4xl text-black"
+            className={
+              selectedDiningOption === null
+                ? "border-primary-300 bg-primary-300 text-primary-600 pointer-events-none mt-4 w-full rounded-lg border-2 py-8 text-4xl"
+                : "border-primary-500 bg-primary-500 hover:bg-primary-600 mt-4 w-full rounded-lg border-2 py-8 text-4xl text-black"
+            }
           >
             Submit Order(s)
           </Button>
