@@ -50,7 +50,7 @@ export const OrderPage = () => {
             />
           ))}
         </RadioGroup>
-        <hr className="my-4 border-2 border-b-neutral-100" />
+        <hr className="my-4 border-4 border-b-neutral-100" />
         <p className="mt-6 mb-6 text-4xl">Payment Summary</p>
         <p className="mb-6 text-3xl">Subtotal</p>
         <div className="flex justify-between text-neutral-500">
@@ -70,7 +70,7 @@ export const OrderPage = () => {
             ))}
           </div>
         </div>
-        <hr className="my-4 border-2 border-b-neutral-100" />
+        <hr className="my-4 border-4 border-b-neutral-100" />
         <div className="mt-6 mb-6 flex justify-between text-4xl">
           <p>
             Total{" "}
@@ -82,7 +82,7 @@ export const OrderPage = () => {
         <div className="mt-6">
           <Button
             style={{ cursor: "pointer" }}
-            className="border-primary-300 text-primary-600 bg-primary-300 hover:bg-primary-400 mt-4 w-full rounded-lg border-2 py-8 text-4xl"
+            className="border-primary-500 bg-primary-500 hover:bg-primary-600 mt-4 w-full rounded-lg border-2 py-8 text-4xl text-black"
           >
             Submit Order(s)
           </Button>
