@@ -6,6 +6,54 @@ import { useState } from "react";
 import landing1 from "../../assets/landing1.png";
 import landing2 from "../../assets/landing2.png";
 
+const PaymentSummary = ({ dishes, totalPrice }) => {
+  return (
+    <div>
+      <p className="mt-6 mb-6 text-4xl">Payment Summary</p>
+      <p className="mb-6 text-3xl">Subtotal</p>
+      <div className="flex justify-between text-neutral-500">
+        <div className="flex flex-col gap-2">
+          {dishes.map(
+            (dish: {
+              title: string;
+              quantity: number;
+              price: number;
+              addonPrice: number;
+            }) => (
+              <div key={dish.title} className="text-3xl">
+                <span className="mr-2">{dish.quantity}x</span>
+                {dish.title}
+              </div>
+            )
+          )}
+        </div>
+        <div className="flex flex-col gap-2 text-3xl">
+          {dishes.map(
+            (dish: {
+              title: string;
+              quantity: number;
+              price: number;
+              addonPrice: number;
+            }) => (
+              <div key={dish.title}>
+                ₱ {(dish.price + dish.addonPrice).toLocaleString()}
+              </div>
+            )
+          )}
+        </div>
+      </div>
+      <hr className="my-4 border-4 border-b-neutral-100" />
+      <div className="mt-6 mb-6 flex justify-between text-4xl">
+        <p>
+          Total{" "}
+          <span className={cn("text-neutral-400")}>(inclusive of Tax)</span>:
+        </p>
+        <p>₱ {totalPrice.toLocaleString()}</p>
+      </div>
+    </div>
+  );
+};
+
 export const OrderPage = () => {
   const [dishes] = useState([
     {
@@ -42,6 +90,16 @@ export const OrderPage = () => {
     0
   );
 
+  const [showSummary, setShowSummary] = useState(false);
+
+  const handleSeeSummary = () => {
+    setShowSummary(true);
+  };
+
+  const handleCloseSummary = () => {
+    setShowSummary(false);
+  };
+
   return (
     <div className={cn("relative px-4 py-6")}>
       <h1 className={cn("text-center text-4xl font-semibold")}>Your Orders</h1>
@@ -66,34 +124,34 @@ export const OrderPage = () => {
           </div>
         )}
         <hr className="my-4 border-4 border-b-neutral-100" />
-        <p className="mt-6 mb-6 text-4xl">Payment Summary</p>
-        <p className="mb-6 text-3xl">Subtotal</p>
-        <div className="flex justify-between text-neutral-500">
-          <div className="flex flex-col gap-2">
-            {dishes.map((dish) => (
-              <div key={dish.title} className="text-3xl">
-                <span className="mr-2">{dish.quantity}x</span>
-                {dish.title}
+        <PaymentSummary dishes={dishes} totalPrice={totalPrice} />
+        <Button
+          className="text-secondary-500 mb-6 bg-transparent text-2xl"
+          style={{ cursor: "pointer" }}
+          onClick={handleSeeSummary}
+        >
+          See summary
+        </Button>
+        {showSummary && (
+          <div
+            className="fixed top-0 right-0 bottom-0 left-0 z-50 bg-transparent transition duration-500 ease-in-out"
+            onClick={handleCloseSummary}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(event) => {
+              if (event.key === "Escape" || event.key === " ") {
+                handleCloseSummary();
+              }
+            }}
+          >
+            <div className="fixed top-0 right-0 bottom-0 left-0 bg-neutral-500 opacity-50 transition duration-500 ease-in-out" />
+            <div className="fixed right-0 bottom-0 left-0 rounded-tl-2xl rounded-tr-2xl bg-white p-4 shadow-md transition duration-500 ease-in-out">
+              <div className={cn("relative px-4 py-6")}>
+                <PaymentSummary dishes={dishes} totalPrice={totalPrice} />
               </div>
-            ))}
+            </div>
           </div>
-          <div className="flex flex-col gap-2 text-3xl">
-            {dishes.map((dish) => (
-              <div key={dish.title}>
-                ₱ {(dish.price + dish.addonPrice).toLocaleString()}
-              </div>
-            ))}
-          </div>
-        </div>
-        <hr className="my-4 border-4 border-b-neutral-100" />
-        <div className="mt-6 mb-6 flex justify-between text-4xl">
-          <p>
-            Total{" "}
-            <span className={cn("text-neutral-400")}>(inclusive of Tax)</span>:
-          </p>
-          <p>₱ {totalPrice.toLocaleString()}</p>
-        </div>
-        <p className="text-secondary-500 mb-6 text-2xl">See summary</p>
+        )}
         <div className="mt-6">
           <Button
             style={{ cursor: "pointer" }}
