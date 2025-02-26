@@ -1,6 +1,7 @@
 import { Button } from "@components/Button/Button";
 import { cn } from "@cloudeats/robin-components";
 import { useState } from "react";
+import ModalDialog from "@components/ModalDialog/ModalDialog";
 
 interface OrderLineItemProps {
   dish: {
@@ -15,6 +16,7 @@ interface OrderLineItemProps {
 
 const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
   const [quantity, setQuantity] = useState(1);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className={cn("align-items-center flex py-4")}>
@@ -41,15 +43,24 @@ const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
           <div className="flex items-center justify-center rounded-full bg-neutral-200 px-3 py-0 text-2xl">
             <Button
               style={{ cursor: "pointer" }}
-              className="text-danger-500 rounded-full bg-transparent p-2 px-4 py-2"
-              onClick={() => setQuantity(quantity - 1)}
+              className="text-danger-500 rounded-full bg-transparent p-2 px-4 py-2 hover:bg-transparent"
+              onClick={() => {
+                if (quantity > 1) {
+                  setQuantity(quantity - 1);
+                } else {
+                  setOpen(true);
+                }
+              }}
             >
               {quantity > 1 ? "-" : "🗑️"}
+              {open && (
+                <ModalDialog open={open} onClose={() => setOpen(false)} />
+              )}
             </Button>
             <span className="mx-2">{quantity}</span>
             <Button
               style={{ cursor: "pointer" }}
-              className="rounded-full bg-transparent px-4 py-2 text-4xl"
+              className="rounded-full bg-transparent px-4 py-2 text-4xl hover:bg-transparent"
               onClick={() => setQuantity(quantity + 1)}
             >
               +
@@ -59,7 +70,7 @@ const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
         <div className="flex justify-start">
           <Button
             style={{ cursor: "pointer" }}
-            className="text-secondary-500 rounded-full bg-transparent"
+            className="text-secondary-500 rounded-full bg-transparent hover:bg-transparent"
           >
             Edit
           </Button>

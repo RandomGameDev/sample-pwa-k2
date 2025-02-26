@@ -100,7 +100,7 @@ export const OrderPage = () => {
             className={
               selectedDiningOption === null
                 ? "border-primary-300 bg-primary-300 text-primary-600 pointer-events-none mt-4 w-full rounded-lg border-2 py-8 text-4xl"
-                : "border-primary-500 bg-primary-500 hover:bg-primary-600 mt-4 w-full rounded-lg border-2 py-8 text-4xl text-black"
+                : "bg-primary-500 hover:bg-primary-400 mt-4 w-full rounded-lg border-2 border-transparent py-8 text-4xl text-black"
             }
           >
             Submit Order(s)
