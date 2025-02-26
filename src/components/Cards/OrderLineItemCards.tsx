@@ -1,7 +1,7 @@
 import { Button } from "@components/Button/Button";
 import { cn } from "@cloudeats/robin-components";
 import { useState } from "react";
-import ModalDialog from "@components/ModalDialog/ModalDialog";
+import ModalDialog from "@components/ModalDialog/DeleteConfirmationModalDialog";
 
 interface OrderLineItemProps {
   dish: {
@@ -41,6 +41,19 @@ const OrderLineItem: React.FC<OrderLineItemProps> = ({ dish }) => {
             <p className="text-neutral-500">{`"${dish.remark}"`}</p>
           </div>
           <div className="flex items-center justify-center rounded-full bg-neutral-200 px-3 py-0 text-2xl">
+            {open && (
+              <div
+                className="fixed top-0 right-0 bottom-0 left-0 bg-neutral-900 opacity-50"
+                onClick={() => setOpen(false)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape" || event.key === " ") {
+                    setOpen(false);
+                  }
+                }}
+              />
+            )}
             <Button
               style={{ cursor: "pointer" }}
               className="text-danger-500 rounded-full bg-transparent p-2 px-4 py-2 hover:bg-transparent"
