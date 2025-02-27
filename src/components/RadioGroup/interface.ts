@@ -10,4 +10,5 @@ export interface RadioGroupItemProps
   testId?: string;
   label: string;
   price?: string;
+  labelClassName?: string;
 }
