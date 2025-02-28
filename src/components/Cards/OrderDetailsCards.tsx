@@ -12,7 +12,7 @@ interface OrderDetailsCardsProps {
   }[];
 }
 
-export const  OrderDetailsCards = ({ orders }: OrderDetailsCardsProps) => {
+export const OrderDetailsCards = ({ orders }: OrderDetailsCardsProps) => {
   return (
     <div className={cn("px-4 py-6")}>
       <div className="my-4 flex items-end justify-between">
