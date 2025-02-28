@@ -18,6 +18,20 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3010,
+    watch: {
+      usePolling: true,
+    },
+    host: true,
+    strictPort: true,
+    port:
+      process.env.NODE_ENV === "development"
+        ? parseInt(process.env.VITE_PORT) || 3010
+        : 3000,
+  },
+  preview: {
+    port:
+      process.env.NODE_ENV === "development"
+        ? parseInt(process.env.VITE_PORT) || 3010
+        : 3000,
   },
 });
