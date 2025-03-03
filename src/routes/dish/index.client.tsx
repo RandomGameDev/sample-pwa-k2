@@ -73,7 +73,7 @@ export const DishPage = ({ params }: Route.ComponentProps) => {
   };
 
   return (
-    <div className={cn("px-0 py-6")}>
+    <div>
       <img
         src={landing1}
         alt=""
