@@ -1,9 +1,7 @@
+import { cn, Icon, Typography } from "@cloudeats/robin-components";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import React from "react";
 import type { RadioGroupItemProps } from "./interface";
-import { cn } from "@cloudeats/robin-components";
-import { Icon } from "@components/Icon/Icon";
-import { Typography } from "@components/Typography/Typography";
 
 export const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,

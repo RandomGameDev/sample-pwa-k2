@@ -1,8 +1,9 @@
-import { Button } from "@components/Button/Button";
 import { cn } from "@cloudeats/robin-components";
+import { Button } from "@components/Button/Button";
 import { OrderLineItemCards } from "@components/Cards/OrderLineItemCards";
 import { RadioGroup, RadioGroupItem } from "@components/RadioGroup";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import landing1 from "../../assets/landing1.png";
 import landing2 from "../../assets/landing2.png";
 
@@ -54,7 +55,8 @@ const PaymentSummary = ({ dishes, totalPrice }) => {
   );
 };
 
-export const OrderPage = () => {
+export const CartPage = () => {
+  const navigate = useNavigate();
   const [dishes] = useState([
     {
       addon: "Garlic Aioli Dip",
@@ -155,6 +157,7 @@ export const OrderPage = () => {
         <div className="mt-6">
           <Button
             style={{ cursor: "pointer" }}
+            onClick={() => navigate("/order/1")}
             className={
               selectedDiningOption === null
                 ? "border-primary-300 bg-primary-300 text-primary-600 pointer-events-none mt-4 w-full rounded-lg border-2 py-8 text-4xl"
@@ -168,3 +171,5 @@ export const OrderPage = () => {
     </div>
   );
 };
+
+export default CartPage;

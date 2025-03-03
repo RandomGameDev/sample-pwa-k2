@@ -1,8 +1,13 @@
+import { CartMolecule } from "@atoms/CartMolecule";
+import { cn, Typography } from "@cloudeats/robin-components";
 import { Button } from "@components/Button/Button";
-import { cn } from "@cloudeats/robin-components";
 import { RadioGroup, RadioGroupItem } from "@components/RadioGroup";
+import { useMolecule } from "bunshi/react";
+import { useSetAtom } from "jotai";
 import { useState } from "react";
+import { href, useNavigate } from "react-router";
 import landing1 from "../../assets/landing1.png";
+import type { Route } from "./+types/index.client";
 
 interface Addon {
   id: number;
@@ -22,13 +27,18 @@ const addons: Addon[] = [
   { id: 4, name: "Soft Drink", price: 29.99 },
 ];
 
-const originalPrice = 249; // Original price of the dish
+const originalPrice = "249.00"; // Original price of the dish
 
-export const DishDetailsPage = () => {
+export const DishPage = ({ params }: Route.ComponentProps) => {
+  const { cartAtom } = useMolecule(CartMolecule);
+  const setCart = useSetAtom(cartAtom);
   const [quantity, setQuantity] = useState(1);
   const [selectedAddons, setSelectedAddons] = useState<Addon[]>([]);
   const [selectedRadio, setSelectedRadio] = useState("");
-  const [totalPrice, setTotalPrice] = useState(originalPrice * quantity); // initial price
+  const [totalPrice, setTotalPrice] = useState(
+    parseInt(originalPrice) * quantity
+  ); // initial price
+  const navigate = useNavigate();
 
   const handleRadioChange = (option) => {
     const currentPrice =
@@ -57,6 +67,11 @@ export const DishDetailsPage = () => {
     setQuantity(quantity + 1);
   };
 
+  const handleAdd = () => {
+    setCart((prevValue) => [...prevValue, parseInt(params.id)]);
+    navigate(href("/menu"));
+  };
+
   return (
     <div className={cn("px-0 py-6")}>
       <img
@@ -71,8 +86,16 @@ export const DishDetailsPage = () => {
       />
       <div className={cn("px-4 py-2")}>
         <div className="my-4 flex items-end justify-between">
-          <h1 className="text-4xl">Premium Soy Garlic Karaage</h1>
-          <span className="text-4xl">₱ {originalPrice}</span>
+          <Typography variant="body-xl-semibold" className="text-neutral-900">
+            Premium Soy Garlic Karaage
+          </Typography>
+          <Typography
+            variant="body-xl-semibold"
+            className="text-neutral-900"
+            as="span"
+          >
+            ₱ {originalPrice}
+          </Typography>
         </div>
         <p className="my-4 text-2xl text-neutral-500">
           This will be the part where the description of the food will display
@@ -158,7 +181,10 @@ export const DishDetailsPage = () => {
           </Button>
         </div>
         <div className={cn("px-4 py-2")}>
-          <Button className="border-primary-500 bg-primary-500 mt-4 w-full rounded-lg border-2 py-6 text-3xl text-black">
+          <Button
+            className="border-primary-500 bg-primary-500 mt-4 w-full rounded-lg border-2 py-6 text-3xl text-black"
+            onClick={handleAdd}
+          >
             Add to Basket - ₱ {(totalPrice * quantity).toFixed(2)}
           </Button>
         </div>
@@ -166,3 +192,5 @@ export const DishDetailsPage = () => {
     </div>
   );
 };
+
+export default DishPage;

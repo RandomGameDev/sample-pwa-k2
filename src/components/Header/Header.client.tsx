@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <nav
       className={cn(
-        "bg-purple-4 text-purple-1 h-[46px] pt-1 text-center text-3xl font-bold"
+        "bg-primary-500 h-[46px] pt-1 text-center text-3xl font-bold text-black"
       )}
     >
       <Link to="/">{sampleBrand}</Link>

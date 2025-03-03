@@ -1,5 +1,3 @@
-import { cn } from "@cloudeats/robin-components";
-
 interface OrderDetailsCardsProps {
   orders: {
     addons: string;
@@ -14,7 +12,7 @@ interface OrderDetailsCardsProps {
 
 export const OrderDetailsCards = ({ orders }: OrderDetailsCardsProps) => {
   return (
-    <div className={cn("px-4 py-6")}>
+    <div>
       <div className="my-4 flex items-end justify-between">
         <h1 className="mb-4 text-6xl">Order Details</h1>
         <h2 className="mb-3 text-4xl text-neutral-500">Dine -in</h2>
