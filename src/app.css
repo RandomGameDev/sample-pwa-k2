@@ -74,6 +74,10 @@
   --neutral-50: #f8fafc;
 }
 
+@theme {
+  --shadow-3xl: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+}
+
 .theme1 {
   --primary-900: oklch(38.1% 0.176 304.987deg);
   --primary-800: oklch(43.8% 0.218 303.724deg);
