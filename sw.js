@@ -42,9 +42,48 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
+self.addEventListener("message", (event) => {
+  console.log("Service Worker received message:", event.data);
+
+  if (event.data && event.data.type === "SIMULATE_PUSH") {
+    console.log("Simulating push event with data:", event.data.payload);
+
+    // Create a simulated push event
+    const notificationData = event.data.payload;
+
+    const options = {
+      body: notificationData.body,
+      icon: notificationData.icon || "/icons/icon-192x192.png",
+      badge: "/icons/icon-192x192.png",
+      vibrate: [100, 50, 100],
+      data: {
+        dateOfArrival: Date.now(),
+        primaryKey: "1",
+        url: self.location.origin,
+      },
+      actions: [
+        {
+          action: "explore",
+          title: "View",
+          icon: "/icons/checkmark.png",
+        },
+        {
+          action: "close",
+          title: "Close",
+          icon: "/icons/xmark.png",
+        },
+      ],
+      requireInteraction: true,
+    };
+
+    // This is the line the user wants to trigger
+    self.registration.showNotification(notificationData.title, options);
+  }
+});
+
 // Push event - handle incoming push notifications
 self.addEventListener("push", (event) => {
-  console.log("PUSH EVENT RECEIVED")
+  console.log("PUSH EVENT RECEIVED");
   if (event.data) {
     const data = event.data.json();
     const options = {
