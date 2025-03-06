@@ -69,7 +69,9 @@ jobs:
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: next
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=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" > .npmrc #or your github registry url
+          ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} react-router typegen && tsc --incremental && react-router build
       - name: Upload artifact
