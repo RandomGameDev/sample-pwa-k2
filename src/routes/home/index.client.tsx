@@ -19,7 +19,10 @@ export const HomePage = () => {
         {Array.isArray(configBrands) &&
           configBrands?.map((configBrand, configBrandIndex) => {
             return (
-              <li className="bg-purple-2 rounded-2xl shadow-lg">
+              <li
+                className="bg-purple-2 rounded-2xl shadow-lg"
+                key={configBrand.id}
+              >
                 <Link to="/menu">
                   <img
                     src={imagRandomizer(configBrandIndex)}

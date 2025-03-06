@@ -5,7 +5,11 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [
+    tailwindcss(),
+    reactRouter(),
+    tsconfigPaths(),
+  ],
   resolve: {
     alias: {
       "@api": "/src/api",
@@ -16,6 +20,9 @@ export default defineConfig({
       "@pages": "/src/pages",
       "@utils": "/src/utils",
     },
+  },
+  build: {
+    sourcemap: process.env.SOURCE_MAP === 'true',
   },
   server: {
     watch: {

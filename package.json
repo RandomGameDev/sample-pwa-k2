@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router typegen && tsc --incremental && react-router build",
-    "start": "react-router-serve ./build/server/index.js",
+    "build": "DEBUG=vite-plugin-pwa BASE_URL=/ SOURCE_MAP=true CLAIMS=true RELOAD_SW=true react-router typegen && tsc --incremental && react-router build",
+    "start": "react-router-serve ./dist/client/index.html",
     "lint": "concurrently -r -g -P --kill-others-on-fail \"npm:lint:ts\"",
     "lint:es": "eslint --fix",
     "lint:dry": "eslint src/** --fix-dry-run .",
@@ -80,7 +80,12 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.25.0",
     "vite": "^6.2.0",
+    "vite-plugin-pwa": "^0.21.1",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.7",
+    "workbox-core": "^7.1.0",
+    "workbox-precaching": "^7.1.0",
+    "workbox-routing": "^7.1.0",
+    "workbox-window": "^7.1.0"
   }
 }
