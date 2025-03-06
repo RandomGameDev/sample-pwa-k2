@@ -64,7 +64,6 @@ jobs:
           static_site_generator: next
       - name: Install dependencies
         run: |
-          echo "//registry.npmjs.org/:_authToken=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" > .npmrc #or your github registry url
           ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} react-router typegen && tsc --incremental && react-router build
