@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "DEBUG=vite-plugin-pwa BASE_URL=/ SOURCE_MAP=true CLAIMS=true RELOAD_SW=true react-router typegen && tsc --incremental && react-router build",
+    "build": "react-router typegen && tsc --incremental && react-router build",
     "start": "react-router-serve ./dist/client/index.html",
     "lint": "concurrently -r -g -P --kill-others-on-fail \"npm:lint:ts\"",
     "lint:es": "eslint --fix",
